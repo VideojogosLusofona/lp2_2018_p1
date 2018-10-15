@@ -16,7 +16,7 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 Os alunos devem implementar o jogo [Simplexity] para dois jogadores.
 Deve ser usada a linguagem C# e os grupos podem ter entre 2 a 3 elementos.-->
 
-### O jogo Simplexity
+### A base de dados Steam Game Data
 
 <!--
 O jogo [Simplexity] é semelhante ao [4-em-linha], mas com uma variação: além de
