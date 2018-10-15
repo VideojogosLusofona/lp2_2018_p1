@@ -20,7 +20,24 @@ bem como efetuar algumas ações sobre jogos específicos, tais como abrir a
 respetiva página do Steam no _browser_ ou descarregar a imagem de apresentação
 do jogo.
 
-### A base de dados Steam Game Data
+### O programa a desenvolver
+
+O programa pode ser desenvolvido de três formas distintas, no entanto será
+apenas dado suporte à primeira forma:
+
+1. Solução Visual Studio 2017, Console App (.NET Framework ou .NET Core)
+2. Solução Visual Studio 2017, Desktop App (WPF ou Windows Forms)
+3. Unity 2018
+
+Caso os alunos optem pela primeira forma, o nome do ficheiro CSV deve ser dado
+como 1º argumento na linha de comandos. Na 2ª e 3ª formas o nome do ficheiro
+deve ser solicitado numa caixa de diálogo da interface gráfica (Windows ou
+Unity). Se o ficheiro for considerado válido, a análise dos jogos pode começar,
+caso contrário o programa apresentar uma mensagem de erro apropriada. No caso
+do programa ser uma aplicação de consola, o mesmo deve terminar de seguida.
+Caso o programa seja uma aplicação Windows Desktop ou Unity, deve voltar a
+pedir o nome de ficheiro numa caixa de diálogo.
+
 
 <!--
 O jogo [Simplexity] é semelhante ao [4-em-linha], mas com uma variação: além de
