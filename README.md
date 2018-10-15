@@ -12,9 +12,13 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 ## Descrição do problema
 
-<!--
-Os alunos devem implementar o jogo [Simplexity] para dois jogadores.
-Deve ser usada a linguagem C# e os grupos podem ter entre 2 a 3 elementos.-->
+Os alunos devem implementar um programa que manipule e analise uma série de
+dados sobre jogos do Steam. O programa deve começar por ler um ficheiro [CSV], disponibilizado no Moodle, contendo os dados em questão. O utilizador do
+programa pode depois colocar questões sobre os jogos, como por exemplo, quais
+os jogos lançados a partir de determinada data, que jogos suportam controlador,
+bem como efetuar algumas ações sobre jogos específicos, tais como abrir a
+respetiva página do Steam no _browser_ ou descarregar a imagem de apresentação
+do jogo.
 
 ### A base de dados Steam Game Data
 
@@ -262,4 +266,4 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0].
 [Sandcastle]:https://github.com/EWSoftware/SHFB
 [SRP]:https://en.wikipedia.org/wiki/Single_responsibility_principle
 [KISS]:https://en.wikipedia.org/wiki/KISS_principle
-[4-em-linha]:https://en.wikipedia.org/wiki/Connect_Four
+[CSV]:https://en.wikipedia.org/wiki/Comma-separated_values
