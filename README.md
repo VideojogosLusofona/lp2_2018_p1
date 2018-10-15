@@ -13,31 +13,107 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 ## Descrição do problema
 
 Os alunos devem implementar um programa que manipule e analise uma série de
-dados sobre jogos do Steam. O programa deve começar por ler um ficheiro [CSV], disponibilizado no Moodle, contendo os dados em questão. O utilizador do
-programa pode depois colocar questões sobre os jogos, como por exemplo, quais
-os jogos lançados a partir de determinada data, que jogos suportam controlador,
-bem como efetuar algumas ações sobre jogos específicos, tais como abrir a
-respetiva página do Steam no _browser_ ou descarregar a imagem de apresentação
-do jogo.
+dados sobre jogos do Steam. O programa deve começar por ler um ficheiro
+[CSV][], disponibilizado no Moodle, contendo os dados em questão. O utilizador
+do programa pode depois colocar questões sobre os jogos, como por exemplo,
+quais os jogos lançados a partir de determinada data, que jogos suportam
+controlador, bem como efetuar algumas ações sobre jogos específicos, tais como
+abrir a respetiva página do Steam no *browser* ou descarregar a imagem de
+apresentação do jogo.
+
+### Conteúdos do ficheiro CSV
+
+Os ficheiros CSV (*comma-separated values*), contém tabelas de dados, sendo que
+os campos em cada linha estão separados por vírgulas. Este tipo de ficheiros
+pode ou não ter uma linha de cabeçalho. Segue-se um exemplo:
+
+```
+Id,Type,Health,Mana,Shield
+1,Elf,50,200,40
+2,Dwarf,40,100,150
+3,Troll,100,10,140
+4,Wizard,25,300,30
+```
+
+No caso em questão, os ficheiros CSV têm uma série de campos com informação
+sobre um videojogo disponível no Steam, nomedamente:
+
+*   **ID** - ID do jogo
+*   **Name** - Nome do jogo
+*   **ReleaseDate** - Data de lançamento<sup>\*</sup>
+*   **DLCCount** - Nº de DLCs lançados
+*   **RequiredAge** - Idade mínima dos jogadores
+*   **Metacritic** - Nota no Metacritic (0 a 100)
+*   **MovieCount** - Nº de *trailers*
+*   **RecommendationCount** - Nº de recomendações
+*   **ScreenshotCount** - Nº de capturas de ecrã
+*   **Owners** - Nº de pessoas que têm o jogo
+*   **NumberOfPlayers** - Nº de pessoas que efetivamente jogaram ao jogo
+*   **AchievementCount** - Nº de *achievements*
+*   **ControllerSupport** - Suporte para controlador (*True* ou *False*)
+*   **PlatformWindows** - Suporte para Windows (*True* ou *False*)
+*   **PlatformLinux** - Suporte para Linux (*True* ou *False*)
+*   **PlatformMac** - Suporte para Mac (*True* ou *False*)
+*   **CategorySinglePlayer** - Suporte para *singleplayer* (*True* ou *False*)
+*   **CategoryMultiplayer** - Suporte para *multiplayer* (*True* ou *False*)
+*   **CategoryCoop** - Suporte para *multiplayer* cooperativo (*True* ou *False*)
+*   **CategoryIncludeLevelEditor** - Inclui editor de níveis (*True* ou *False*)
+*   **CategoryVRSupport** - Suporte para VR (*True* ou *False*)
+*   **SupportURL** - Website de suporte/ajuda do jogo
+*   **AboutText** - Descrição do jogo
+*   **HeaderImage** - URL da imagem do jogo
+*   **Website** - Website do jogo
+
+Cada linha do ficheiro corresponde a um jogo, e a primeira linha indica o nome
+dos campos (cabeçalho).
 
 ### O programa a desenvolver
 
 O programa pode ser desenvolvido de três formas distintas, no entanto será
 apenas dado suporte à primeira forma:
 
-1. Solução Visual Studio 2017, Console App (.NET Framework ou .NET Core)
-2. Solução Visual Studio 2017, Desktop App (WPF ou Windows Forms)
-3. Unity 2018
+1.  Solução Visual Studio 2017, Console App (.NET Framework ou .NET Core)
+2.  Solução Visual Studio 2017, Desktop App (WPF ou Windows Forms)
+3.  Unity 2018
 
 Caso os alunos optem pela primeira forma, o nome do ficheiro CSV deve ser dado
 como 1º argumento na linha de comandos. Na 2ª e 3ª formas o nome do ficheiro
 deve ser solicitado numa caixa de diálogo da interface gráfica (Windows ou
 Unity). Se o ficheiro for considerado válido, a análise dos jogos pode começar,
-caso contrário o programa apresentar uma mensagem de erro apropriada. No caso
-do programa ser uma aplicação de consola, o mesmo deve terminar de seguida.
-Caso o programa seja uma aplicação Windows Desktop ou Unity, deve voltar a
-pedir o nome de ficheiro numa caixa de diálogo.
+caso contrário o programa deve apresentar uma mensagem de erro apropriada. No
+caso do programa ser uma aplicação de consola, deve terminar após o erro. Caso
+o programa seja uma aplicação Windows Desktop ou Unity, deve voltar a pedir o
+nome de ficheiro numa caixa de diálogo.
 
+Durante a leitura do ficheiro, cada linha lida deve levar à instanciação de um
+objeto do tipo `Game`, que deve ser guardado numa coleção contendo todos os
+jogos listados. O tipo `Game` deve ter todos os campos presentes no ficheiro
+CSV, e o tipo destes campos deve ser apropriado para o campo em questão. Por
+exemplo:
+
+*   Campos numéricos são essencialmente [int][]s.
+*   Campos com valores *True* ou *False* devem ser representados com [bool][].
+*   Campos de texto devem ser guardados como [string][].
+*   Campos de data devem usar a `struct` [DateTime][].
+*   Campos com endereços URL devem usar a classe [Uri][].
+
+Após leitura e validação do ficheiro, o programa deve ter as seguintes opções:
+
+1.  Mostrar informação de um jogo
+2.  Efetuar uma pesquisa
+3.  Sair
+
+#### Mostrar informação de um jogo
+
+#### Efetuar uma pesquisa
+
+<!--
+https://stackoverflow.com/questions/3173775/how-to-run-external-program-via-a-c-sharp-program
+
+https://stackoverflow.com/questions/33538527/display-a-image-in-a-console-application/33604540
+
+https://stackoverflow.com/questions/24797485/how-to-download-image-from-url
+-->
 
 <!--
 O jogo [Simplexity] é semelhante ao [4-em-linha], mas com uma variação: além de
@@ -89,9 +165,9 @@ falhar, o jogo deve solicitar ao jogador a repetição da jogada.
 No ponto 3, o tabuleiro deve ser analisado de modo a determinar se existe uma
 das condições de vitória descritas na secção anterior.-->
 
-<a name="visualize"></a>
+<!--<a name="visualize"></a>
 
-### Visualização
+### Visualização-->
 
 <!--
 A visualização do jogo deve feita em modo de texto. A [Figura 1](#fig1) mostra
@@ -195,16 +271,14 @@ preliminar.
 O projeto deve ser entregue via Moodle até às 23h de 11 de novembro de 2018.
 Deve ser submetido um ficheiro `zip` com os seguintes conteúdos:
 
-* Solução completa do projeto, contendo adicionalmente e obrigatoriamente:
-  * Pasta escondida `.git` com o repositório Git local do projeto.
-  * Documentação gerada com [Doxygen], [Sandcastle] ou ferramenta similar.
-  * Ficheiro `README.md` contendo o relatório do projeto em formato [Markdown].
-  * Ficheiros de imagem contendo o fluxograma e o diagrama UML de classes.
-    Estes ficheiros podem ser incluídos no repositório em modo Git LFS.
-
-Notas adicionais para entrega:
-
-* A solução deve ser desenvolvida no Visual Studio 2017 ou Unity 2018.
+*   Solução completa do projeto, contendo adicionalmente e obrigatoriamente:
+    *   Pasta escondida `.git` com o repositório Git local do projeto.
+    *   Documentação HTML ou CHM gerada com [Doxygen][], [Sandcastle][] ou
+        ferramenta similar.
+    *   Ficheiro `README.md` contendo o relatório do projeto em formato
+        [Markdown][].
+    *   Ficheiros de imagem contendo o fluxograma e o diagrama UML de classes.
+        Estes ficheiros podem ser incluídos no repositório em modo Git LFS.
 
 ## Extensões opcionais
 
@@ -249,27 +323,27 @@ para possível instauração de um processo disciplinar. Este poderá
 resultar em reprovação à disciplina, reprovação de ano ou mesmo suspensão
 temporária ou definitiva da ULHT.
 
-_Texto adaptado da disciplina de [Algoritmos e
-Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]_
+*Texto adaptado da disciplina de [Algoritmos e
+Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]*
 
 ## Referências
 
-* <a name="ref1">\[1\]</a> Whitaker, R. B. (2016). The C# Player's Guide
-  (3rd Edition). Starbound Software.
-* <a name="ref2">\[2\]</a> Albahari, J. (2017). C# 7.0 in a Nutshell. O’Reilly
-  Media.
-* <a name="ref3">\[3\]</a> Kelly, C. (2016). Steam Game Data. Retrieved from
-  https://data.world/craigkelly/steam-game-data.
+*   <a name="ref1">\[1\]</a> Whitaker, R. B. (2016). The C# Player's Guide
+    (3rd Edition). Starbound Software.
+*   <a name="ref2">\[2\]</a> Albahari, J. (2017). C# 7.0 in a Nutshell.
+    O’Reilly Media.
+*   <a name="ref3">\[3\]</a> Kelly, C. (2016). Steam Game Data. Retrieved from
+    <https://data.world/craigkelly/steam-game-data>.
 
 ## Licenças
 
-Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0].
+Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 
 ## Metadados
 
-* Autor: [Nuno Fachada]
-* Curso:  [Licenciatura em Videojogos][lamv]
-* Instituição: [Universidade Lusófona de Humanidades e Tecnologias][ULHT]
+*   Autor: [Nuno Fachada][]
+*   Curso:  [Licenciatura em Videojogos][lamv]
+*   Instituição: [Universidade Lusófona de Humanidades e Tecnologias][ULHT]
 
 [GPLv3]:https://www.gnu.org/licenses/gpl-3.0.en.html
 [CC BY-NC-SA 4.0]:https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -284,3 +358,8 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0].
 [SRP]:https://en.wikipedia.org/wiki/Single_responsibility_principle
 [KISS]:https://en.wikipedia.org/wiki/KISS_principle
 [CSV]:https://en.wikipedia.org/wiki/Comma-separated_values
+[DateTime]:https://docs.microsoft.com/dotnet/api/system.datetime
+[int]:https://docs.microsoft.com/dotnet/api/system.int32
+[Uri]:https://docs.microsoft.com/dotnet/api/system.uri
+[bool]:https://docs.microsoft.com/dotnet/api/system.boolean
+[string]:https://docs.microsoft.com/dotnet/api/system.string
