@@ -90,19 +90,55 @@ jogos listados. O tipo `Game` deve ter todos os campos presentes no ficheiro
 CSV, e o tipo destes campos deve ser apropriado para o campo em questão. Por
 exemplo:
 
-*   Campos numéricos são essencialmente [int][]s.
-*   Campos com valores *True* ou *False* devem ser representados com [bool][].
-*   Campos de texto devem ser guardados como [string][].
-*   Campos de data devem usar a `struct` [DateTime][].
-*   Campos com endereços URL devem usar a classe [Uri][].
+*   Campos numéricos são essencialmente [`int`][]s.
+*   Campos com valores *True* ou *False* devem ser representados com [`bool`][].
+*   Campos de texto devem ser guardados como [`string`][].
+*   Campos de data devem usar a `struct` [`DateTime`][].
+*   Campos com endereços URL devem usar a classe [`Uri`][].
 
-Após leitura e validação do ficheiro, o programa deve ter as seguintes opções:
+Jogos que apareçam repetidos devem ser ignorados ou descartados sem qualquer
+aviso. Um jogo é considerado repetido se tiver o mesmo ID. Após leitura e
+validação do ficheiro, o programa deve ter as seguintes opções:
 
 1.  Mostrar informação de um jogo
 2.  Efetuar uma pesquisa
 3.  Sair
 
 #### Mostrar informação de um jogo
+
+Se o utilizador selecionar esta opção, o programa deve solicitar o ID do jogo
+a mostrar. Se o ID for válido (i.e., se for um [`int`][] e se corresponder a um
+jogo que exista na lista), o programa deve mostrar toda a informação sobre o
+jogo, de forma bem formatada e agradável de visualizar. Se o programa for
+desenvolvido em Unity, WPF ou Windows Forms, a informação sobre o jogo deve
+também mostrar a imagem do jogo. Se for desenvolvido em consola, o programa
+deve descarregar a imagem da Internet e indicar a pasta para a qual foi feita
+a transferência. Seja qual for a opção escolhida pelos alunos, é possível
+descarregar uma imagem da Internet usando a classe [`WebClient`][] (um bom
+exemplo de utilização desta classe está disponível
+[aqui](https://stackoverflow.com/questions/24797485/how-to-download-image-from-url)).
+
+Os alunos podem implementar as seguintes extensões opcionais, que permitem
+compensar eventuais problemas noutras partes do projeto, facilitando a obtenção
+da nota máxima:
+
+1.  Caso o programa tenha sido desenvolvido em consola, mostrar a imagem do
+    jogo, ou [diretamente da consola](https://stackoverflow.com/questions/33538527/display-a-image-in-a-console-application/33604540),
+    ou através do visualizador de imagens do Windows 10.
+2.  Em qualquer tipo de implementação, dar a opção de abrir o *website* de
+    suporte do jogo e *website* do jogo usando o *browser* por omissão do
+    sistema.
+
+A implementação destas extensões pode obrigar a lançar um programa externo, e a
+forma de realizar essa ação é através da classe [`Process`][]. Vários exemplos
+de como utilizar esta classe para esse efeito estão disponíveis
+[aqui](https://stackoverflow.com/questions/181719/how-do-i-start-a-process-from-c),
+[aqui](https://stackoverflow.com/questions/3173775/how-to-run-external-program-via-a-c-sharp-program)
+e
+[aqui](https://stackoverflow.com/questions/4580263/how-to-open-in-default-browser-in-c-sharp).
+
+A implementação das extensões opcionais pode compensar eventuais problemas
+noutras partes do projeto, facilitando a obtenção da nota máxima de 2 valores.
 
 #### Efetuar uma pesquisa
 
@@ -182,6 +218,23 @@ e cilíndricas, respetivamente.
 **Figura 1** - Possível implementação da visualização em modo de texto (lado
 esquerdo) e situação de jogo equivalente (lado direito).-->
 
+
+### Extensões opcionais
+
+<!--
+Os alunos podem opcionalmente desenvolver um modo _single-player_, onde o
+jogador adversário é implementado com inteligência artificial. Para o efeito
+podem usar o algoritmo [Minimax], com cortes [Alfa-Beta] para acelerar o
+cálculo, além de ser uma excelente oportunidade para o uso de recursão.
+
+Esta extensão permite melhorar, até ao máximo de 4 valores, a nota preliminar
+do projeto. Atenção que esta extensão não é simples e os conceitos envolvidos
+não fazem parte da matéria da disciplina. Só devem abordar este problema quando
+o projeto base estiver devidamente concluído. Se abordarem o problema devem
+fazê-lo num ramo Git separado, para poderem facilmente voltar à versão base
+caso não tenham sucesso na implementação da extensão.
+-->
+
 <a name="orgclasses"></a>
 
 ### Organização do projeto e estrutura de classes
@@ -213,7 +266,10 @@ bibliografia da disciplina):
     fazer. Um princípio que vinca ainda mais esta ideia é o [princípio da
     inversão de dependências][DIP], que afirma que devemos depender apenas de
     abstrações (i.e. interfaces e classes abstratas) e não de classes
-    concretas.
+    concretas. Duas explicações interessantes sobre esta tema encontram-se
+    [aqui](https://stackoverflow.com/questions/383947/what-does-it-mean-to-program-to-an-interface)
+    e
+    [aqui](https://pt.stackoverflow.com/questions/86484/programar-voltado-para-interface-e-n%C3%A3o-para-a-implementa%C3%A7%C3%A3o-por-qu%C3%AA).
 
 Estes princípios devem ser balanceados com o princípio [KISS][], crucial no
 desenvolvimento de qualquer sistema.
@@ -298,22 +354,6 @@ Deve ser submetido um ficheiro `zip` com os seguintes conteúdos:
     *   Ficheiros de imagem contendo o fluxograma e o diagrama UML de classes.
         Estes ficheiros podem ser incluídos no repositório em modo Git LFS.
 
-## Extensões opcionais
-
-<!--
-Os alunos podem opcionalmente desenvolver um modo _single-player_, onde o
-jogador adversário é implementado com inteligência artificial. Para o efeito
-podem usar o algoritmo [Minimax], com cortes [Alfa-Beta] para acelerar o
-cálculo, além de ser uma excelente oportunidade para o uso de recursão.
-
-Esta extensão permite melhorar, até ao máximo de 4 valores, a nota preliminar
-do projeto. Atenção que esta extensão não é simples e os conceitos envolvidos
-não fazem parte da matéria da disciplina. Só devem abordar este problema quando
-o projeto base estiver devidamente concluído. Se abordarem o problema devem
-fazê-lo num ramo Git separado, para poderem facilmente voltar à versão base
-caso não tenham sucesso na implementação da extensão.
--->
-
 ## Honestidade académica
 
 Nesta disciplina, espera-se que cada aluno siga os mais altos padrões de
@@ -385,13 +425,15 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 [SRP]:https://en.wikipedia.org/wiki/Single_responsibility_principle
 [KISS]:https://en.wikipedia.org/wiki/KISS_principle
 [CSV]:https://en.wikipedia.org/wiki/Comma-separated_values
-[DateTime]:https://docs.microsoft.com/dotnet/api/system.datetime
-[int]:https://docs.microsoft.com/dotnet/api/system.int32
-[Uri]:https://docs.microsoft.com/dotnet/api/system.uri
-[bool]:https://docs.microsoft.com/dotnet/api/system.boolean
-[string]:https://docs.microsoft.com/dotnet/api/system.string
+[`DateTime`]:https://docs.microsoft.com/dotnet/api/system.datetime
+[`int`]:https://docs.microsoft.com/dotnet/api/system.int32
+[`Uri`]:https://docs.microsoft.com/dotnet/api/system.uri
+[`bool`]:https://docs.microsoft.com/dotnet/api/system.boolean
+[`string`]:https://docs.microsoft.com/dotnet/api/system.string
 [`List<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1
 [`IEnumerable<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
 [`HashSet<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1
 [DIP]:https://en.wikipedia.org/wiki/Dependency_inversion_principle
 [XML]:https://docs.microsoft.com/dotnet/csharp/codedoc
+[`WebClient`]:https://docs.microsoft.com/dotnet/api/system.net.webclient
+[`Process`]:https://docs.microsoft.com/dotnet/api/system.diagnostics.process
