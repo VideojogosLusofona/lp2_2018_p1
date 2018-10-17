@@ -225,12 +225,15 @@ desenvolvimento de qualquer sistema.
 Este projeto tem os seguintes objetivos:
 
 *   **O1** - Programa deve funcionar como especificado.
-*   **O2** - Projeto e código bem organizados, nomeadamente: a) estrutura de
-    classes bem pensada (ver secção <a href="#orgclasses">Organização do
-    projeto e estrutura de classes</a>); b) código devidamente comentado e
-    indentado; c) inexistência de código "morto", que não faz nada, como por
-    exemplo variáveis ou métodos nunca usados; d) soluções [simples][KISS] e
-    eficientes; e, e) projeto compila e executa sem erros e/ou *warnings*.
+*   **O2** - Projeto e código bem organizados, nomeadamente:
+    *   Estrutura de classes bem pensada (ver secção
+        <a href="#orgclasses">Organização do projeto e estrutura de
+        classes</a>).
+    *   Código devidamente comentado e indentado.
+    *   Inexistência de código "morto", que não faz nada, como por exemplo
+        variáveis, propriedades ou métodos nunca usados.
+    *   Soluções [simples][KISS] e eficientes.
+    *   Projeto compila e executa sem erros e/ou *warnings*.
 *   **O3** - Projeto adequadamente comentado e documentado. Documentação deve
     ser feita com [comentários de documentação XML][XML], e a documentação
     (gerada em formato HTML ou CHM com [Doxygen][], [Sandcastle][] ou
