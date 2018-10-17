@@ -14,12 +14,12 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 Os grupos devem implementar um programa em C# \[[1][ref1],[2][ref2]\] que
 manipule e analise uma série de dados sobre jogos do Steam \[[3][ref3]\]. O
-programa deve começar por ler o ficheiro [`games.csv`](games.csv), que contém
-os dados em questão. O utilizador do programa pode depois colocar questões
-sobre os jogos, como por exemplo, quais os jogos lançados a partir de
-determinada data, que jogos suportam controlador, bem como efetuar algumas
-ações sobre jogos específicos, tais como abrir a respetiva página do Steam no
-*browser* ou descarregar a imagem de apresentação do jogo.
+programa deve começar por ler um ficheiro [CSV][], que contém os dados em
+questão. O utilizador do programa pode depois colocar questões sobre os jogos,
+como por exemplo, quais os jogos lançados a partir de determinada data, que
+jogos suportam controlador, bem como efetuar algumas ações sobre jogos
+específicos, tais como abrir a respetiva página do Steam no *browser* ou
+descarregar a imagem de apresentação do jogo.
 
 ### Conteúdos do ficheiro CSV
 
@@ -56,8 +56,10 @@ sobre um videojogo disponível no Steam, nomedamente:
 *   **PlatformMac** - Suporte para Mac (*True* ou *False*)
 *   **CategorySinglePlayer** - Suporte para *singleplayer* (*True* ou *False*)
 *   **CategoryMultiplayer** - Suporte para *multiplayer* (*True* ou *False*)
-*   **CategoryCoop** - Suporte para *multiplayer* cooperativo (*True* ou *False*)
-*   **CategoryIncludeLevelEditor** - Inclui editor de níveis (*True* ou *False*)
+*   **CategoryCoop** - Suporte para *multiplayer* cooperativo (*True* ou
+    *False*)
+*   **CategoryIncludeLevelEditor** - Inclui editor de níveis (*True* ou
+    *False*)
 *   **CategoryVRSupport** - Suporte para VR (*True* ou *False*)
 *   **SupportURL** - Website de suporte/ajuda do jogo
 *   **AboutText** - Descrição do jogo
@@ -65,7 +67,8 @@ sobre um videojogo disponível no Steam, nomedamente:
 *   **Website** - Website do jogo
 
 Cada linha do ficheiro corresponde a um jogo, e a primeira linha indica o nome
-dos campos (cabeçalho).
+dos campos (cabeçalho). Está incluido neste repositório o ficheiro
+[`games.csv`](games.csv), que permite aos grupos testarem o seu projeto.
 
 ### O programa a desenvolver
 
@@ -92,7 +95,8 @@ CSV, e o tipo destes campos deve ser apropriado para o campo em questão. Por
 exemplo:
 
 *   Campos numéricos são essencialmente [`int`][]s.
-*   Campos com valores *True* ou *False* devem ser representados com [`bool`][].
+*   Campos com valores *True* ou *False* devem ser representados com
+    [`bool`][].
 *   Campos de texto devem ser guardados como [`string`][].
 *   Campos de data devem usar a `struct` [`DateTime`][].
 *   Campos com endereços URL devem usar a classe [`Uri`][].
@@ -176,7 +180,7 @@ bibliografia da disciplina):
     [`HashSet<T>`][] era muito mais eficiente para aquilo que pretendíamos
     fazer. Um princípio que vinca ainda mais esta ideia é o [princípio da
     inversão de dependências][DIP], que afirma que devemos depender apenas de
-    abstrações (i.e. interfaces e classes abstratas) e não de classes
+    abstrações (i.e., interfaces e classes abstratas) e não de classes
     concretas. Duas explicações interessantes sobre esta tema encontram-se
     [aqui](https://stackoverflow.com/questions/383947/what-does-it-mean-to-program-to-an-interface)
     e
