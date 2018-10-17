@@ -12,18 +12,17 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 ## Descrição do problema
 
-Os alunos devem implementar um programa que manipule e analise uma série de
-dados sobre jogos do Steam. O programa deve começar por ler um ficheiro
-[CSV][], disponibilizado no Moodle, contendo os dados em questão. O utilizador
-do programa pode depois colocar questões sobre os jogos, como por exemplo,
-quais os jogos lançados a partir de determinada data, que jogos suportam
-controlador, bem como efetuar algumas ações sobre jogos específicos, tais como
-abrir a respetiva página do Steam no *browser* ou descarregar a imagem de
-apresentação do jogo.
+Os alunos devem implementar um programa em C# \[[1][ref1],[2][ref2]\] que
+manipule e analise uma série de dados sobre jogos do Steam \[[3][ref3]\]. O
+programa deve começar por ler um ficheiro [CSV][], disponibilizado no Moodle,
+contendo os dados em questão. O utilizador do programa pode depois colocar
+questões sobre os jogos, como por exemplo, quais os jogos lançados a partir de determinada data, que jogos suportam controlador, bem como efetuar algumas
+ações sobre jogos específicos, tais como abrir a respetiva página do Steam no
+*browser* ou descarregar a imagem de apresentação do jogo.
 
 ### Conteúdos do ficheiro CSV
 
-Os ficheiros CSV (*comma-separated values*), contém tabelas de dados, sendo que
+Os ficheiros CSV (*comma-separated values*) contêm tabelas de dados, sendo que
 os campos em cada linha estão separados por vírgulas. Este tipo de ficheiros
 pode ou não ter uma linha de cabeçalho. Segue-se um exemplo:
 
@@ -40,15 +39,15 @@ sobre um videojogo disponível no Steam, nomedamente:
 
 *   **ID** - ID do jogo
 *   **Name** - Nome do jogo
-*   **ReleaseDate** - Data de lançamento<sup>\*</sup>
+*   **ReleaseDate** - Data de lançamento
 *   **DLCCount** - Nº de DLCs lançados
-*   **RequiredAge** - Idade mínima dos jogadores
+*   **RequiredAge** - Idade mínima para jogar
 *   **Metacritic** - Nota no Metacritic (0 a 100)
 *   **MovieCount** - Nº de *trailers*
 *   **RecommendationCount** - Nº de recomendações
 *   **ScreenshotCount** - Nº de capturas de ecrã
 *   **Owners** - Nº de pessoas que têm o jogo
-*   **NumberOfPlayers** - Nº de pessoas que efetivamente jogaram ao jogo
+*   **NumberOfPlayers** - Nº de pessoas que efetivamente jogaram o jogo
 *   **AchievementCount** - Nº de *achievements*
 *   **ControllerSupport** - Suporte para controlador (*True* ou *False*)
 *   **PlatformWindows** - Suporte para Windows (*True* ou *False*)
@@ -85,8 +84,8 @@ caso do programa ser uma aplicação de consola, deve terminar após o erro. Cas
 o programa seja uma aplicação Windows Desktop ou Unity, deve voltar a pedir o
 nome de ficheiro numa caixa de diálogo.
 
-Durante a leitura do ficheiro, cada linha lida deve levar à instanciação de um
-objeto do tipo `Game`, que deve ser guardado numa coleção contendo todos os
+Durante a leitura do ficheiro, cada linha deve corresponder à instanciação de
+um objeto do tipo `Game`, que deve ser guardado numa coleção contendo todos os
 jogos listados. O tipo `Game` deve ter todos os campos presentes no ficheiro
 CSV, e o tipo destes campos deve ser apropriado para o campo em questão. Por
 exemplo:
@@ -187,16 +186,36 @@ esquerdo) e situação de jogo equivalente (lado direito).-->
 
 ### Organização do projeto e estrutura de classes
 
-<!--O projeto deve estar devidamente organizado, fazendo uso de classes e
-enumerações. Cada classe/enumeração deve ser colocada num ficheiro com o mesmo
-nome. Por exemplo, uma classe chamada `Player` deve ser colocada no ficheiro
-`Player.cs`. A estrutura de classes deve ser bem pensada e organizada de uma
-forma lógica, e [cada classe deve ter uma responsabilidade específica e bem
-definida][SRP].
+O projeto deve estar devidamente organizado, fazendo uso de classes, `struct`s
+e/ou enumerações, consoante seja mais apropriado. Cada tipo (i.e., classe,
+`struct` ou enumeração) deve ser colocado num ficheiro com o mesmo nome. Por
+exemplo, uma classe chamada `Game` deve ser colocada no ficheiro `Game.cs`. Por
+sua vez, a escolha da coleção ou coleções a usar também deve ser adequada ao
+problema.
 
-O exercício proposto no capítulo 20 do livro da disciplina [\[1\]](#ref1)
-constitui um bom ponto de partida para desenhar uma estrutura de classes
-adequada para este projeto.-->
+A estrutura de classes deve ser bem pensada e organizada de uma forma lógica.
+Em particular, o projeto deve ser desenvolvido tendo em conta os seguintes
+princípios (bem explicados na referência \[[4][ref4]\], que faz parte da
+bibliografia da disciplina):
+
+*   [Cada classe deve ter uma responsabilidade específica e bem definida][SRP].
+    Em particular, deve haver uma clara separação de responsabilidades
+    relativamente à visualização, controlo da aplicação, manipulação de dados e
+    manipulação de ficheiros.
+*   Programar para interfaces e não para implementações. Por outras palavras, o
+    código deve depender o menos possível de outro código. Por exemplo, se
+    usarmos uma [`List<T>`][] para guardar informação, e o restante código
+    apenas necessitar de iterar sobre a informação lá contida, então esse
+    restante código apenas precisa de saber que está a lidar com um
+    [IEnumerable<T>][]. Desta forma é mais fácil no futuro mudar a coleção
+    concreta usada, pois podemos chegar à conclusão que afinal um
+    [HashSet<T>][] era muito mais eficiente para aquilo que pretendíamos fazer.
+    Um princípio que vinca ainda mais esta ideia é o [princípio da inversão de
+    dependências][DIP], que afirma que devemos depender apenas de abstrações
+    (i.e. interfaces e classes abstratas) e não de classes concretas.
+
+Estes princípios devem ser balanceados com o princípio [KISS][], crucial no
+desenvolvimento de qualquer sistema.
 
 <a name="objetivos"></a>
 
@@ -328,12 +347,14 @@ Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]*
 
 ## Referências
 
-*   <a name="ref1">\[1\]</a> Whitaker, R. B. (2016). The C# Player's Guide
+*   <a name="ref1">\[1\]</a> Whitaker, R. B. (2016). **The C# Player's Guide**
     (3rd Edition). Starbound Software.
-*   <a name="ref2">\[2\]</a> Albahari, J. (2017). C# 7.0 in a Nutshell.
+*   <a name="ref2">\[2\]</a> Albahari, J. (2017). **C# 7.0 in a Nutshell**.
     O’Reilly Media.
-*   <a name="ref3">\[3\]</a> Kelly, C. (2016). Steam Game Data. Retrieved from
-    <https://data.world/craigkelly/steam-game-data>.
+*   <a name="ref3">\[3\]</a> Kelly, C. (2016). **Steam Game Data**. Retrieved
+    from <https://data.world/craigkelly/steam-game-data>.
+*   <a name="ref3">\[4\]</a> Freeman, E., Robson, E., Bates, B., & Sierra, K.
+    (2004). **Head First Design Patterns**. O'Reilly Media..
 
 ## Licenças
 
@@ -345,7 +366,10 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 *   Curso:  [Licenciatura em Videojogos][lamv]
 *   Instituição: [Universidade Lusófona de Humanidades e Tecnologias][ULHT]
 
-[GPLv3]:https://www.gnu.org/licenses/gpl-3.0.en.html
+[ref1]:#ref1
+[ref2]:#ref2
+[ref3]:#ref3
+[ref4]:#ref4
 [CC BY-NC-SA 4.0]:https://creativecommons.org/licenses/by-nc-sa/4.0/
 [lamv]:https://www.ulusofona.pt/licenciatura/videojogos
 [Nuno Fachada]:https://github.com/fakenmc
@@ -363,3 +387,7 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 [Uri]:https://docs.microsoft.com/dotnet/api/system.uri
 [bool]:https://docs.microsoft.com/dotnet/api/system.boolean
 [string]:https://docs.microsoft.com/dotnet/api/system.string
+[`List<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1
+[IEnumerable<T>]:https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+[HashSet<T>]:https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+[DIP]:https://en.wikipedia.org/wiki/Dependency_inversion_principle
