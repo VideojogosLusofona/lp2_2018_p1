@@ -237,15 +237,15 @@ Este projeto tem os seguintes objetivos:
 *   **O3** - Projeto adequadamente comentado e documentado. Documentação deve
     ser feita com [comentários de documentação XML][XML], e a documentação
     (gerada em formato HTML ou CHM com [Doxygen][], [Sandcastle][] ou
-    ferramenta similar [\[5\]][ref5]) deve estar incluída no ZIP do projeto
-    (mas não integrada no repositório Git).
+    ferramenta similar [\[5\]][ref5]) deve estar incluída no ZIP do projeto,
+    mas **não** integrada no repositório Git.
 *   **O4** - Repositório Git deve refletir boa utilização do mesmo, com
     *commits* de todos os elementos do grupo e mensagens de *commit* que sigam
     as melhores práticas para o efeito (como indicado
     [aqui](https://chris.beams.io/posts/git-commit/),
     [aqui](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53),
     [aqui](https://github.com/erlang/otp/wiki/writing-good-commit-messages) e
-    [aqui](https://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting)). Quaisquer *assets* binários, tais como imagens, devem ser integradas
+    [aqui](https://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting)). Quaisquer *assets* binários, tais como imagens, devem ser integrados
     no repositório em modo Git LFS.
 *   **O5** - Relatório em formato [Markdown][] (ficheiro `README.md`),
     organizado da seguinte forma:
@@ -259,15 +259,14 @@ Este projeto tem os seguintes objetivos:
     *   Descrição da solução:
         *   Arquitetura da solução, com breve explicação de como o programa foi
             organizado, indicação das coleções usadas e porquê, bem como
-            algoritmos utilizados (para fazer *parsing* do ficheiro CSV, para
-            conjugar as várias perguntas à base de dados, etc).
-    *   Um diagrama UML descrevendo a estrutura de classes.
-    *   Um fluxograma mostrando o funcionamento do programa.
+            algoritmos utilizados (e.g., para fazer *parsing* do ficheiro CSV,
+            para conjugar as várias perguntas à base de dados, etc).
+        *   Um diagrama UML de classes descrevendo a estrutura de classes.
+        *   Um fluxograma mostrando o funcionamento do programa.
     *   Conclusões e matéria aprendida.
-    *   Referências:
-        *   Incluindo trocas de ideias com colegas, código aberto reutilizado
-            (e.g. do StackOverflow) e bibliotecas de terceiros utilizadas.
-            Devem ser o mais detalhados possível.
+    *   Referências, incluindo trocas de ideias com colegas, código aberto
+        reutilizado (e.g., do StackOverflow) e bibliotecas de terceiros
+        utilizadas. Devem ser o mais detalhados possível.
     *   **Nota:** o relatório deve ser simples e breve, com informação mínima e
         suficiente para que seja possível ter uma boa ideia do que foi feito.
         Atenção aos erros ortográficos, pois serão tidos em conta na nota
@@ -278,7 +277,7 @@ de forma qualitativa. Isto significa que todos os objetivos têm de ser
 parcialmente ou totalmente cumpridos. A cada objetivo, O1 a O5, será atribuída
 uma nota entre 0 e 1. A nota do projeto será dada pela seguinte fórmula:
 
-*N = 4 x O1 x O2 x O3 x O4 x O5 x D*
+*N = 2 x O1 x O2 x O3 x O4 x O5 x D*
 
 Em que *D* corresponde à nota da discussão e percentagem equitativa de
 realização do projeto, também entre 0 e 1. Isto significa que se os alunos
