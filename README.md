@@ -222,69 +222,65 @@ desenvolvimento de qualquer sistema.
 
 ## Objetivos e critério de avaliação
 
-<!--
 Este projeto tem os seguintes objetivos:
 
-* **O1** - Jogo deve funcionar como especificado.
-* **O2** - Projeto e código bem organizados, nomeadamente: a) estrutura de
-  classes bem pensada (ver secção <a href="#orgclasses">Organização do projeto
-  e estrutura de classes</a>); b) código devidamente comentado e indentado; c)
-  inexistência de código "morto", que não faz nada, como por exemplo
-  variáveis ou métodos nunca usados; d) soluções [simples][KISS] e eficientes;
-  e, e) projeto compila e executa sem erros e/ou  _warnings_.
-* **O3** - Projeto adequadamente comentado e documentado. Documentação deve ser
-  feita com comentários de documentação XML, e a documentação (gerada com
-  [Doxygen], [Sandcastle] ou ferramenta similar) deve estar incluída no ZIP do
-  projeto (mas não integrada no repositório Git).
-* **O4** - Repositório Git deve refletir boa utilização do mesmo, com _commits_
-  de todos os elementos do grupo e mensagens de _commit_ que sigam as melhores
-  práticas para o efeito (como indicado
-  [aqui](https://chris.beams.io/posts/git-commit/),
-  [aqui](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53),
-  [aqui](https://github.com/erlang/otp/wiki/writing-good-commit-messages) e
-  [aqui](https://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting)).
-* **O5** - Relatório em formato [Markdown] (ficheiro `README.md`), organizado
-  da seguinte forma:
-  * Título do projeto.
-  * Nome dos autores (primeiro e último) e respetivos números de aluno.
-  * Indicação do repositório público Git utilizado. Esta indicação é opcional,
-    pois podem preferir desenvolver o projeto num repositório privado.
-  * Informação de quem fez o quê no projeto. Esta informação é **obrigatória**
-    e deve refletir os _commits_ feitos no Git.
-  * Descrição da solução:
-    * Arquitetura da solução, com breve explicação de como o programa foi
-      organizado e indicação das estruturas de dados (para o tabuleiro de jogo,
-      por exemplo) e algoritmos (para verificação da situação de vitória, por
-      exemplo) utilizados.
-    * Um diagrama UML descrevendo a estrutura de classes.
-    * Um fluxograma mostrando o _game loop_.
-  * Conclusões e matéria aprendida.
-  * Referências:
-    * Incluindo trocas de ideias com colegas, código aberto reutilizado e
-      bibliotecas de terceiros utilizadas. Devem ser o mais detalhados
-      possível.
-  * **Nota:** o relatório deve ser simples e breve, com informação mínima e
-    suficiente para que seja possível ter uma boa ideia do que foi feito.
-    Atenção aos erros ortográficos, pois serão tidos em conta na nota final.
+*   **O1** - Programa deve funcionar como especificado.
+*   **O2** - Projeto e código bem organizados, nomeadamente: a) estrutura de
+    classes bem pensada (ver secção <a href="#orgclasses">Organização do
+    projeto e estrutura de classes</a>); b) código devidamente comentado e
+    indentado; c) inexistência de código "morto", que não faz nada, como por
+    exemplo variáveis ou métodos nunca usados; d) soluções [simples][KISS] e
+    eficientes; e, e) projeto compila e executa sem erros e/ou *warnings*.
+*   **O3** - Projeto adequadamente comentado e documentado. Documentação deve
+    ser feita com [comentários de documentação XML][XML], e a documentação
+    (gerada em formato HTML ou CHM com [Doxygen][], [Sandcastle][] ou
+    ferramenta similar [\[5\]][ref5]) deve estar incluída no ZIP do projeto
+    (mas não integrada no repositório Git).
+*   **O4** - Repositório Git deve refletir boa utilização do mesmo, com
+    *commits* de todos os elementos do grupo e mensagens de *commit* que sigam
+    as melhores práticas para o efeito (como indicado
+    [aqui](https://chris.beams.io/posts/git-commit/),
+    [aqui](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53),
+    [aqui](https://github.com/erlang/otp/wiki/writing-good-commit-messages) e
+    [aqui](https://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting)). Quaisquer *assets* binários, tais como imagens, devem ser integradas
+    no repositório em modo Git LFS.
+*   **O5** - Relatório em formato [Markdown][] (ficheiro `README.md`),
+    organizado da seguinte forma:
+    *   Título do projeto.
+    *   Nome dos autores (primeiro e último) e respetivos números de aluno.
+    *   Indicação do repositório público Git utilizado. Esta indicação é
+        opcional, pois podem preferir desenvolver o projeto num repositório
+        privado.
+    *   Informação de quem fez o quê no projeto. Esta informação é
+        **obrigatória** e deve refletir os *commits* feitos no Git.
+    *   Descrição da solução:
+        *   Arquitetura da solução, com breve explicação de como o programa foi
+            organizado, indicação das coleções usadas e porquê, bem como
+            algoritmos utilizados (para fazer *parsing* do ficheiro CSV, para
+            conjugar as várias perguntas à base de dados, etc).
+    *   Um diagrama UML descrevendo a estrutura de classes.
+    *   Um fluxograma mostrando o funcionamento do programa.
+    *   Conclusões e matéria aprendida.
+    *   Referências:
+        *   Incluindo trocas de ideias com colegas, código aberto reutilizado
+            (e.g. do StackOverflow) e bibliotecas de terceiros utilizadas.
+            Devem ser o mais detalhados possível.
+    *   **Nota:** o relatório deve ser simples e breve, com informação mínima e
+        suficiente para que seja possível ter uma boa ideia do que foi feito.
+        Atenção aos erros ortográficos, pois serão tidos em conta na nota
+        final.
 
-O projeto tem um peso de 4 valores na nota final da disciplina e será avaliado
+O projeto tem um peso de 2 valores na nota final da disciplina e será avaliado
 de forma qualitativa. Isto significa que todos os objetivos têm de ser
 parcialmente ou totalmente cumpridos. A cada objetivo, O1 a O5, será atribuída
-uma nota entre 0 e 1. A nota preliminar do projeto será dada pela seguinte
-fórmula:
+uma nota entre 0 e 1. A nota do projeto será dada pela seguinte fórmula:
 
-_N = 4 x O1 x O2 x O3 x O4 x O5_
+*N = 4 x O1 x O2 x O3 x O4 x O5 x D*
 
-Isto significa que se os alunos ignorarem completamente um dos objetivos, a
-nota final será zero.
-
-A nota individual de cada aluno será atribuida com base na nota preliminar do
-projeto, na percentagem de trabalho realizada (indicada no relatório e
-verificada através dos _commits_) e na discussão do projeto. Se o aluno tiver
-realizado uma percentagem equitativa do projeto e se souber explicar o que fez
-durante a discussão, então a nota individual deverá ser muito semelhante à nota
-preliminar.
--->
+Em que *D* corresponde à nota da discussão e percentagem equitativa de
+realização do projeto, também entre 0 e 1. Isto significa que se os alunos
+ignorarem completamente um dos objetivos, não tenham feito nada no projeto ou
+não comparerecem na discussão, a nota final será zero.
 
 ## Entrega
 
@@ -294,7 +290,7 @@ Deve ser submetido um ficheiro `zip` com os seguintes conteúdos:
 *   Solução completa do projeto, contendo adicionalmente e obrigatoriamente:
     *   Pasta escondida `.git` com o repositório Git local do projeto.
     *   Documentação HTML ou CHM gerada com [Doxygen][], [Sandcastle][] ou
-        ferramenta similar.
+        ferramenta similar [\[5\]][ref5].
     *   Ficheiro `README.md` contendo o relatório do projeto em formato
         [Markdown][].
     *   Ficheiros de imagem contendo o fluxograma e o diagrama UML de classes.
@@ -354,8 +350,11 @@ Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]*
     O’Reilly Media.
 *   <a name="ref3">\[3\]</a> Kelly, C. (2016). **Steam Game Data**. Retrieved
     from <https://data.world/craigkelly/steam-game-data>.
-*   <a name="ref3">\[4\]</a> Freeman, E., Robson, E., Bates, B., & Sierra, K.
-    (2004). **Head First Design Patterns**. O'Reilly Media..
+*   <a name="ref4">\[4\]</a> Freeman, E., Robson, E., Bates, B., & Sierra, K.
+    (2004). **Head First Design Patterns**. O'Reilly Media.
+*   <a name="ref5">\[5\]</a> Dorsey, T. (2017). **Doing Visual Studio and .NET
+    Code Documentation Right**. Visual Studio Magazine. Retrieved from
+    <https://visualstudiomagazine.com/articles/2017/02/21/vs-dotnet-code-documentation-tools-roundup.aspx>.
 
 ## Licenças
 
@@ -371,6 +370,7 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 [ref2]:#ref2
 [ref3]:#ref3
 [ref4]:#ref4
+[ref5]:#ref5
 [CC BY-NC-SA 4.0]:https://creativecommons.org/licenses/by-nc-sa/4.0/
 [lamv]:https://www.ulusofona.pt/licenciatura/videojogos
 [Nuno Fachada]:https://github.com/fakenmc
@@ -392,3 +392,4 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 [`IEnumerable<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
 [`HashSet<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1
 [DIP]:https://en.wikipedia.org/wiki/Dependency_inversion_principle
+[XML]:https://docs.microsoft.com/dotnet/csharp/codedoc
