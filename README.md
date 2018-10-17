@@ -207,12 +207,13 @@ bibliografia da disciplina):
     usarmos uma [`List<T>`][] para guardar informação, e o restante código
     apenas necessitar de iterar sobre a informação lá contida, então esse
     restante código apenas precisa de saber que está a lidar com um
-    [IEnumerable<T>][]. Desta forma é mais fácil no futuro mudar a coleção
+    [`IEnumerable<T>`][]. Desta forma é mais fácil no futuro mudar a coleção
     concreta usada, pois podemos chegar à conclusão que afinal um
-    [HashSet<T>][] era muito mais eficiente para aquilo que pretendíamos fazer.
-    Um princípio que vinca ainda mais esta ideia é o [princípio da inversão de
-    dependências][DIP], que afirma que devemos depender apenas de abstrações
-    (i.e. interfaces e classes abstratas) e não de classes concretas.
+    [`HashSet<T>`][] era muito mais eficiente para aquilo que pretendíamos
+    fazer. Um princípio que vinca ainda mais esta ideia é o [princípio da
+    inversão de dependências][DIP], que afirma que devemos depender apenas de
+    abstrações (i.e. interfaces e classes abstratas) e não de classes
+    concretas.
 
 Estes princípios devem ser balanceados com o princípio [KISS][], crucial no
 desenvolvimento de qualquer sistema.
@@ -388,6 +389,6 @@ Este enunciado é disponibilizados através da licença [CC BY-NC-SA 4.0][].
 [bool]:https://docs.microsoft.com/dotnet/api/system.boolean
 [string]:https://docs.microsoft.com/dotnet/api/system.string
 [`List<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1
-[IEnumerable<T>]:https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-[HashSet<T>]:https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+[`IEnumerable<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+[`HashSet<T>`]:https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1
 [DIP]:https://en.wikipedia.org/wiki/Dependency_inversion_principle
