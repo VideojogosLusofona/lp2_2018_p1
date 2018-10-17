@@ -16,7 +16,8 @@ Os alunos devem implementar um programa em C# \[[1][ref1],[2][ref2]\] que
 manipule e analise uma série de dados sobre jogos do Steam \[[3][ref3]\]. O
 programa deve começar por ler um ficheiro [CSV][], disponibilizado no Moodle,
 contendo os dados em questão. O utilizador do programa pode depois colocar
-questões sobre os jogos, como por exemplo, quais os jogos lançados a partir de determinada data, que jogos suportam controlador, bem como efetuar algumas
+questões sobre os jogos, como por exemplo, quais os jogos lançados a partir de
+determinada data, que jogos suportam controlador, bem como efetuar algumas
 ações sobre jogos específicos, tais como abrir a respetiva página do Steam no
 *browser* ou descarregar a imagem de apresentação do jogo.
 
@@ -112,10 +113,10 @@ jogo que exista na lista), o programa deve mostrar toda a informação sobre o
 jogo, de forma bem formatada e agradável de visualizar. Se o programa for
 desenvolvido em Unity, WPF ou Windows Forms, a informação sobre o jogo deve
 também mostrar a imagem do jogo. Se for desenvolvido em consola, o programa
-deve descarregar a imagem da Internet e indicar a pasta para a qual foi feita
-a transferência. Seja qual for a opção escolhida pelos alunos, é possível
-descarregar uma imagem da Internet usando a classe [`WebClient`][] (um bom
-exemplo de utilização desta classe está disponível
+deve descarregar a imagem da Internet e indicar o caminho completo da imagem no
+sistema de ficheiros local. Seja qual for a opção escolhida pelos alunos, é
+possível descarregar uma imagem da Internet usando a classe [`WebClient`][] (um
+bom exemplo de utilização desta classe está disponível
 [aqui](https://stackoverflow.com/questions/24797485/how-to-download-image-from-url)).
 
 Os alunos podem implementar as seguintes extensões opcionais, que permitem
@@ -123,15 +124,16 @@ compensar eventuais problemas noutras partes do projeto, facilitando a obtençã
 da nota máxima:
 
 1.  Caso o programa tenha sido desenvolvido em consola, mostrar a imagem do
-    jogo, ou [diretamente da consola](https://stackoverflow.com/questions/33538527/display-a-image-in-a-console-application/33604540),
-    ou através do visualizador de imagens do Windows 10.
+    jogo [diretamente da consola](https://stackoverflow.com/questions/33538527/display-a-image-in-a-console-application/33604540)
+    ou através do visualizador de imagens do Windows.
 2.  Em qualquer tipo de implementação, dar a opção de abrir o *website* de
-    suporte do jogo e *website* do jogo usando o *browser* por omissão do
-    sistema.
+    suporte/ajuda e o *website* do jogo usando o *browser* por omissão do
+    Windows.
 
-A implementação destas extensões pode obrigar a lançar um programa externo, e a
-forma de realizar essa ação é através da classe [`Process`][]. Vários exemplos
-de como utilizar esta classe para esse efeito estão disponíveis
+Pode ser necessário, para a implementação destas extensões, lançar um programa
+externo ao C\#. A forma de realizar essa ação é através da classe
+[`Process`][]. Vários exemplos de como utilizar esta classe para esse efeito
+estão disponíveis
 [aqui](https://stackoverflow.com/questions/181719/how-do-i-start-a-process-from-c),
 [aqui](https://stackoverflow.com/questions/3173775/how-to-run-external-program-via-a-c-sharp-program)
 e
