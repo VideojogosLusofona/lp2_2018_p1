@@ -12,20 +12,20 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 ## Descrição do problema
 
-Os alunos devem implementar um programa em C# \[[1][ref1],[2][ref2]\] que
+Os grupos devem implementar um programa em C# \[[1][ref1],[2][ref2]\] que
 manipule e analise uma série de dados sobre jogos do Steam \[[3][ref3]\]. O
-programa deve começar por ler um ficheiro [CSV][], disponibilizado no Moodle,
-contendo os dados em questão. O utilizador do programa pode depois colocar
-questões sobre os jogos, como por exemplo, quais os jogos lançados a partir de
+programa deve começar por ler o ficheiro [`games.csv`](games.csv), que contém
+os dados em questão. O utilizador do programa pode depois colocar questões
+sobre os jogos, como por exemplo, quais os jogos lançados a partir de
 determinada data, que jogos suportam controlador, bem como efetuar algumas
 ações sobre jogos específicos, tais como abrir a respetiva página do Steam no
 *browser* ou descarregar a imagem de apresentação do jogo.
 
 ### Conteúdos do ficheiro CSV
 
-Os ficheiros CSV (*comma-separated values*) contêm tabelas de dados, sendo que
-os campos em cada linha estão separados por vírgulas. Este tipo de ficheiros
-pode ou não ter uma linha de cabeçalho. Segue-se um exemplo:
+Os ficheiros [CSV][] (*comma-separated values*) contêm tabelas de dados, sendo
+que os campos em cada linha estão separados por vírgulas. Este tipo de
+ficheiros pode ou não ter uma linha de cabeçalho. Segue-se um exemplo:
 
 ```
 Id,Type,Health,Mana,Shield
@@ -114,12 +114,12 @@ jogo, de forma bem formatada e agradável de visualizar. Se o programa for
 desenvolvido em Unity, WPF ou Windows Forms, a informação sobre o jogo deve
 também mostrar a imagem do jogo. Se for desenvolvido em consola, o programa
 deve descarregar a imagem da Internet e indicar o caminho completo da imagem no
-sistema de ficheiros local. Seja qual for a opção escolhida pelos alunos, é
-possível descarregar uma imagem da Internet usando a classe [`WebClient`][] (um
-bom exemplo de utilização desta classe está disponível
+sistema de ficheiros local. Seja qual for a opção escolhida, é possível
+descarregar uma imagem da Internet usando a classe [`WebClient`][] (um bom
+exemplo de utilização desta classe está disponível
 [aqui](https://stackoverflow.com/questions/24797485/how-to-download-image-from-url)).
 
-Os alunos podem implementar as seguintes extensões opcionais, que permitem
+O grupo pode implementar as seguintes extensões opcionais, que permitem
 compensar eventuais problemas noutras partes do projeto, facilitando a obtenção
 da nota máxima:
 
@@ -132,8 +132,8 @@ da nota máxima:
 
 Pode ser necessário, para a implementação destas extensões, lançar um programa
 externo ao C\#. A forma de realizar essa ação é através da classe
-[`Process`][]. Vários exemplos de como utilizar esta classe para esse efeito
-estão disponíveis
+[`Process`][]. Vários exemplos de como utilizar essa classe para o efeito estão
+disponíveis
 [aqui](https://stackoverflow.com/questions/181719/how-do-i-start-a-process-from-c),
 [aqui](https://stackoverflow.com/questions/3173775/how-to-run-external-program-via-a-c-sharp-program)
 e
@@ -144,98 +144,7 @@ noutras partes do projeto, facilitando a obtenção da nota máxima de 2 valores
 
 #### Efetuar uma pesquisa
 
-<!--
-https://stackoverflow.com/questions/3173775/how-to-run-external-program-via-a-c-sharp-program
-
-https://stackoverflow.com/questions/33538527/display-a-image-in-a-console-application/33604540
-
-https://stackoverflow.com/questions/24797485/how-to-download-image-from-url
--->
-
-<!--
-O jogo [Simplexity] é semelhante ao [4-em-linha], mas com uma variação: além de
-**cor**, as peças têm também **forma**. O [Simplexity] é jogado em turnos, e em
-cada turno o jogador coloca uma peça numa das 7 colunas do tabuleiro de jogo. A
-peça cai na vertical até atingir a base da coluna ou uma peça já colocada na
-coluna. Um jogador vence quando 4 peças da sua **cor** ou da sua **forma** são
-colocadas em linha (na vertical, horizontal ou diagonal). Se ocorrer uma
-situação em que existam 4 peças em linha da mesma cor e 4 peças em linha da
-mesma forma, a forma sobrepõem-se à cor para efeitos de vitória. O jogo termina
-num empate após todas as peças terem sido colocadas em jogo sem que exista uma
-situação de vitória.
-
-A [Tabela 1](#tab1) mostra as condições de vitória para cada jogador, bem como
-as peças alocadas inicialmente a cada um. Em caso de dúvidas podes consultar as
-[regras do Simplexity] ou entrar em contacto com o docente via Moodle.
-
-<a name="tab1"></a>
-
-**Tabela 1** - Condições de vitória (cor e forma) e peças alocadas inicialmente
-a cada jogador.
-
-| Jogador | Vitória de cor | Vitória de forma | Peças iniciais                             |
-|---------|----------------|------------------|--------------------------------------------|
-| 1       | Branco         | Cilindro         | 11 cubos brancos, 10 cilindros brancos     |
-| 2       | Vermelho       | Cubo             | 11 cubos vermelhos, 10 cilindros vermelhos |
-
-### Modo de funcionamento
-
-O jogo começa automaticamente, entrando no seguinte ciclo (_game loop_):
-
-1. Mostrar tabuleiro (ver secção <a href="#visualize">Visualização do jogo</a>)
-2. Solicitar jogada ao jogador atual (jogador 1 é o primeiro a jogar)
-3. Verificar se existe uma condição de vitória
-   * Em caso afirmativo, terminar o jogo e indicar o vencedor
-   * Em caso negativo:
-      * Se ainda existirem peças para jogar, voltar ao ponto 1, alternando o
-        jogador
-      * Caso contrário, terminar jogo com empate
-
-No ponto 2, é solicitado ao jogador: a) a peça a jogar (cubo ou cilindro); e,
-b) a coluna onde colocar a peça. Antes de solicitar a jogada, deve ser dada
-indicação de quantas peças de cada tipo o jogador ainda tem para jogar. Após o
-jogador ter inserido uma jogada, o jogo deve verificar se: a) o jogador ainda
-tem peças do tipo indicado; e, b) a coluna do tabuleiro ainda tem espaço para
-mais peças (máximo de 7 peças por coluna). Se alguma destas verificações
-falhar, o jogo deve solicitar ao jogador a repetição da jogada.
-
-No ponto 3, o tabuleiro deve ser analisado de modo a determinar se existe uma
-das condições de vitória descritas na secção anterior.-->
-
-<!--<a name="visualize"></a>
-
-### Visualização-->
-
-<!--
-A visualização do jogo deve feita em modo de texto. A [Figura 1](#fig1) mostra
-uma possível implementação da visualização do jogo (lado esquerdo), com os
-caracteres `R` e `r` indicando peças vermelhas cúbicas e cilíndricas,
-respetivamente, e os caracteres `W` e `w` representando peças brancas cúbicas
-e cilíndricas, respetivamente.
-
-<a name="fig1"></a>
-
-![visualize](https://user-images.githubusercontent.com/3018963/38045647-463cb488-32b5-11e8-9c98-70c6cc42a16f.png)
-
-**Figura 1** - Possível implementação da visualização em modo de texto (lado
-esquerdo) e situação de jogo equivalente (lado direito).-->
-
-
-### Extensões opcionais
-
-<!--
-Os alunos podem opcionalmente desenvolver um modo _single-player_, onde o
-jogador adversário é implementado com inteligência artificial. Para o efeito
-podem usar o algoritmo [Minimax], com cortes [Alfa-Beta] para acelerar o
-cálculo, além de ser uma excelente oportunidade para o uso de recursão.
-
-Esta extensão permite melhorar, até ao máximo de 4 valores, a nota preliminar
-do projeto. Atenção que esta extensão não é simples e os conceitos envolvidos
-não fazem parte da matéria da disciplina. Só devem abordar este problema quando
-o projeto base estiver devidamente concluído. Se abordarem o problema devem
-fazê-lo num ramo Git separado, para poderem facilmente voltar à versão base
-caso não tenham sucesso na implementação da extensão.
--->
+*Em construção*
 
 <a name="orgclasses"></a>
 
@@ -344,8 +253,9 @@ não comparerecem na discussão, a nota final será zero.
 
 ## Entrega
 
-O projeto deve ser entregue via Moodle até às 23h de 11 de novembro de 2018.
-Deve ser submetido um ficheiro `zip` com os seguintes conteúdos:
+O projeto deve ser entregue por **grupos de 2 alunos** via Moodle até às 23h de
+11 de novembro de 2018. Deve ser submetido um ficheiro `zip` com os seguintes
+conteúdos:
 
 *   Solução completa do projeto, contendo adicionalmente e obrigatoriamente:
     *   Pasta escondida `.git` com o repositório Git local do projeto.
