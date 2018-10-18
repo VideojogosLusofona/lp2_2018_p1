@@ -152,7 +152,7 @@ noutras partes do projeto, facilitando a obtenção da nota máxima de 2 valores
 Se o utilizador escolher esta opção, terá à sua disposição as seguintes opções:
 
 *   Especificar critério de ordenação
-*   Adicionar filtro de pesquisa
+*   Especificar filtros de pesquisa
 *   Realizar pesquisa
 *   Voltar atrás
 
@@ -173,9 +173,29 @@ Devem ser disponibilizados os seguintes critérios de ordenação:
 O critério de ordenação por omissão é por ID. Após especificado o critério de
 omissão, o programa deve voltar ao menu anterior.
 
-##### Adicionar filtro de pesquisa
+##### Especificar filtros de pesquisa
 
-*Em construção*
+Neste menu podem ser adicionados, incrementalmente, os seguintes filtros de
+pesquisa:
+
+*   Por nome (basta um *match* parcial, independente de se tratar de maiúsculas
+    ou minúsculas)
+*   Por data (jogos lançados a partir de)
+*   Por idade (maior que)
+*   Por nota do Metacritic (maior que)
+*   Por número de recomendações (maior que)
+*   Por suporte de controlador (sendo este *true*)
+*   Por suporte para Windows (sendo este *true*)
+*   Por suporte para Linux (sendo este *true*)
+*   Por suporte para Mac (sendo este *true*)
+*   Por suporte para *singleplayer* (sendo este *true*)
+*   Por suporte para *multiplayer* (sendo este *true*)
+*   Por suporte para *multiplayer* cooperativo (sendo este *true*)
+*   Por inclusão de editor de níveis (sendo este *true*)
+*   Por suporte para VR (sendo este *true*)
+
+Deve ser claro para o utilizador quais os filtros selecionados e com que valor
+no caso dos filtros de nome, por data e numéricos.
 
 ##### Realizar pesquisa
 
@@ -211,7 +231,7 @@ bibliografia da disciplina):
     relativamente à visualização, controlo da aplicação, manipulação de dados e
     manipulação de ficheiros.
 *   Programar para interfaces e não para implementações. Por outras palavras, o
-    código deve depender o menos possível de outro código. Por exemplo, se
+    código deve depender o menos possível de classes concretas. Por exemplo, se
     usarmos uma [`List<T>`][] para guardar informação, e o restante código
     apenas necessitar de iterar sobre a informação lá contida, então esse
     restante código apenas precisa de saber que está a lidar com um
