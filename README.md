@@ -171,7 +171,7 @@ Devem ser disponibilizados os seguintes critérios de ordenação:
 *   Por número de *achievements* (descendente)
 
 O critério de ordenação por omissão é por ID. Após especificado o critério de
-omissão, o programa deve voltar ao menu anterior.
+ordenação, o programa deve voltar ao menu anterior.
 
 ##### Especificar filtros de pesquisa
 
@@ -221,8 +221,9 @@ exemplo, uma classe chamada `Game` deve ser colocada no ficheiro `Game.cs`. Por
 sua vez, a escolha da coleção ou coleções a usar também deve ser adequada ao
 problema.
 
-A estrutura de classes deve ser bem pensada e organizada de uma forma lógica.
-Em particular, o projeto deve ser desenvolvido tendo em conta os seguintes
+A estrutura de classes deve ser bem pensada e organizada de forma lógica,
+fazendo uso de *design patterns* quando e se apropriado \[[4][ref4]\]. Em
+particular, o projeto deve ser desenvolvido tendo em conta os seguintes
 princípios (bem explicados na referência \[[4][ref4]\], que faz parte da
 bibliografia da disciplina):
 
@@ -237,11 +238,11 @@ bibliografia da disciplina):
     restante código apenas precisa de saber que está a lidar com um
     [`IEnumerable<T>`][]. Desta forma é mais fácil no futuro mudar a coleção
     concreta usada, pois podemos chegar à conclusão que afinal um
-    [`HashSet<T>`][] era muito mais eficiente para aquilo que pretendíamos
-    fazer. Um princípio que vinca ainda mais esta ideia é o [princípio da
-    inversão de dependências][DIP], que afirma que devemos depender apenas de
-    abstrações (i.e., interfaces e classes abstratas) e não de classes
-    concretas. Duas explicações interessantes sobre esta tema encontram-se
+    [`HashSet<T>`][] é muito mais eficiente para aquilo que pretendemos fazer.
+    Um princípio que vinca ainda mais esta ideia é o [princípio da inversão de
+    dependências][DIP], que afirma que devemos depender apenas de abstrações
+    (i.e., interfaces e classes abstratas) e não de classes concretas. Duas
+    explicações interessantes sobre esta tema encontram-se
     [aqui](https://stackoverflow.com/questions/383947/what-does-it-mean-to-program-to-an-interface)
     e
     [aqui](https://pt.stackoverflow.com/questions/86484/programar-voltado-para-interface-e-n%C3%A3o-para-a-implementa%C3%A7%C3%A3o-por-qu%C3%AA).
@@ -263,13 +264,12 @@ Este projeto tem os seguintes objetivos:
     *   Código devidamente comentado e indentado.
     *   Inexistência de código "morto", que não faz nada, como por exemplo
         variáveis, propriedades ou métodos nunca usados.
-    *   Soluções [simples][KISS] e eficientes.
     *   Projeto compila e executa sem erros e/ou *warnings*.
-*   **O3** - Projeto adequadamente comentado e documentado. Documentação deve
-    ser feita com [comentários de documentação XML][XML], e a documentação
-    (gerada em formato HTML ou CHM com [Doxygen][], [Sandcastle][] ou
-    ferramenta similar [\[5\]][ref5]) deve estar incluída no ZIP do projeto,
-    mas **não** integrada no repositório Git.
+*   **O3** - Projeto adequadamente documentado. Documentação deve ser feita com
+    [comentários de documentação XML][XML], e a documentação (gerada em formato
+    HTML ou CHM com [Doxygen][], [Sandcastle][] ou ferramenta similar
+    [\[5\]][ref5]) deve estar incluída no ZIP do projeto, mas **não** integrada
+    no repositório Git.
 *   **O4** - Repositório Git deve refletir boa utilização do mesmo, com
     *commits* de todos os elementos do grupo e mensagens de *commit* que sigam
     as melhores práticas para o efeito (como indicado
@@ -289,10 +289,11 @@ Este projeto tem os seguintes objetivos:
         **obrigatória** e deve refletir os *commits* feitos no Git.
     *   Descrição da solução:
         *   Arquitetura da solução, com breve explicação de como o programa foi
-            organizado, indicação das coleções usadas e porquê, bem como
+            organizado, indicação das coleções usadas e porquê, bem como dos
             algoritmos utilizados (e.g., para fazer *parsing* do ficheiro CSV,
             para conjugar as várias perguntas à base de dados, etc).
-        *   Um diagrama UML de classes descrevendo a estrutura de classes.
+        *   Um diagrama UML de classes simples (i.e., sem indicação dos
+            membros da classe) descrevendo a estrutura de classes.
         *   Um fluxograma mostrando o funcionamento do programa.
     *   Conclusões e matéria aprendida.
     *   Referências, incluindo trocas de ideias com colegas, código aberto
@@ -318,7 +319,7 @@ não comparerecem na discussão, a nota final será zero.
 ## Entrega
 
 O projeto deve ser entregue por **grupos de 2 alunos** via Moodle até às 23h de
-11 de novembro de 2018. Deve ser submetido um ficheiro `zip` com os seguintes
+18 de novembro de 2018. Deve ser submetido um ficheiro `zip` com os seguintes
 conteúdos:
 
 *   Solução completa do projeto, contendo adicionalmente e obrigatoriamente:
