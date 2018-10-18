@@ -72,8 +72,9 @@ dos campos (cabeçalho). Está incluido neste repositório o ficheiro
 
 ### O programa a desenvolver
 
-O programa pode ser desenvolvido de três formas distintas, no entanto será
-apenas dado suporte à primeira forma:
+O programa pode ser desenvolvido de três formas distintas, sem qualquer
+benefício ou limitação em termos de nota. No entanto será apenas dado suporte à
+primeira forma:
 
 1.  Solução Visual Studio 2017, Console App (.NET Framework ou .NET Core)
 2.  Solução Visual Studio 2017, Desktop App (WPF ou Windows Forms)
@@ -152,7 +153,7 @@ Se o utilizador escolher esta opção, terá à sua disposição as seguintes op
 
 *   Especificar critério de ordenação
 *   Adicionar filtro de pesquisa
-*   Realizar pesquisa com filtros selecionados
+*   Realizar pesquisa
 *   Voltar atrás
 
 ##### Especificar critério de ordenação
@@ -176,9 +177,18 @@ omissão, o programa deve voltar ao menu anterior.
 
 *Em construção*
 
-##### Realizar pesquisa com filtros selecionados
+##### Realizar pesquisa
 
-*Em construção*
+Esta opção inicia a pesquisa com o critério de ordenação especificado e com os
+filtros selecionados. Se o projeto for desenvolvido em consola, podem ser
+apresentados 10 ou 20 jogos de cada vez, sendo necessário que o utilizador
+pressione uma tecla para ver os próximos 10/20 jogos. Por outro lado, se se
+tratar de um projeto em WPF, Windows Forms ou Unity, a lista de jogos deve ser
+*scrollable* ("rolável") para cima e para baixo. Também é possível ter uma
+lista "rolável" em modo consola, mas como não é tão direto, fica como extensão
+opcional (com eventuais benefícios na nota final). Em qualquer dos casos devem
+ser apresentados, para cada jogo, todos os campos que podem ser usados como
+critério de ordenação.
 
 <a name="orgclasses"></a>
 
