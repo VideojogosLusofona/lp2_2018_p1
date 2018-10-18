@@ -148,6 +148,36 @@ noutras partes do projeto, facilitando a obtenção da nota máxima de 2 valores
 
 #### Efetuar uma pesquisa
 
+Se o utilizador escolher esta opção, terá à sua disposição as seguintes opções:
+
+*   Especificar critério de ordenação
+*   Adicionar filtro de pesquisa
+*   Realizar pesquisa com filtros selecionados
+*   Voltar atrás
+
+##### Especificar critério de ordenação
+
+Devem ser disponibilizados os seguintes critérios de ordenação:
+
+*   Por ID (ascendente)
+*   Por nome (ascendente, por ordem alfabética)
+*   Por data de lançamento (descendente, do mais recente para o mais antigo)
+*   Por número de DLCs (descendente)
+*   Por nota no Metacritic (descendente)
+*   Por número de recomendações (descendente)
+*   Por número de pessoas que têm o jogo (descendente)
+*   Por número de pessoas que efetivamente jogaram ao jogo (descendente)
+*   Por número de *achievements* (descendente)
+
+O critério de ordenação por omissão é por ID. Após especificado o critério de
+omissão, o programa deve voltar ao menu anterior.
+
+##### Adicionar filtro de pesquisa
+
+*Em construção*
+
+##### Realizar pesquisa com filtros selecionados
+
 *Em construção*
 
 <a name="orgclasses"></a>
