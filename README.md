@@ -41,8 +41,8 @@ sobre um videojogo disponível no Steam, nomedamente:
 *   **ID** - ID do jogo
 *   **Name** - Nome do jogo
 *   **ReleaseDate** - Data de lançamento
-*   **DLCCount** - Nº de DLCs lançados
 *   **RequiredAge** - Idade mínima para jogar
+*   **DLCCount** - Nº de DLCs lançados
 *   **Metacritic** - Nota no Metacritic (0 a 100)
 *   **MovieCount** - Nº de *trailers*
 *   **RecommendationCount** - Nº de recomendações
